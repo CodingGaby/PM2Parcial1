@@ -1,4 +1,5 @@
 ﻿using AppointmentSimulator.Models;
+using AppointmentSimulator.ViewModels;
 
 namespace AppointmentSimulator.Pages
 {
@@ -7,6 +8,7 @@ namespace AppointmentSimulator.Pages
         public MainPage()
         {
             InitializeComponent();
+            BindingContext = new AppointmentViewModel();
             AppointmentsCollectionView.ItemsSource = GlobalData.Appointments;
         }
 
