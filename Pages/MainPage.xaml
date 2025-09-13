@@ -25,35 +25,35 @@
 
                             <Label Text="Nombre:"
                                    Grid.Column="0"
-                                   Grid.Row="0" 
+                                   Grid.Row="0"
                                    FontAttributes="Bold"/>
                             <Label Text="Asunto"
                                    Grid.Column="0"
                                    Grid.Row="1"
-                                   FontAttributes="Bold" />
+                                   FontAttributes="Bold"/>
                             <Label Text="Fecha de la cita:"
                                    Grid.Column="0"
                                    Grid.Row="2"
-                                   FontAttributes="Bold" />
+                                   FontAttributes="Bold"/>
                             <Label Text="Hora:"
                                    Grid.Column="0"
                                    Grid.Row="3"
-                                   FontAttributes="Bold" />
+                                   FontAttributes="Bold"/>
 
                             <Label Text="{Binding Name}"
                                    Grid.Column="1"
-                                   Grid.Row="0" />
+                                   Grid.Row="0"/>
                             <Label Text="{Binding Subject}"
                                    Grid.Column="1"
-                                   Grid.Row="1" />
+                                   Grid.Row="1"/>
                             <Label Text="{Binding AppointmentDate, StringFormat='{dd/MM/yyyy}'}"
                                    Grid.Column="1"
-                                   Grid.Row="2" />
+                                   Grid.Row="2"/>
                             <HorizontalStackLayout Grid.Column="1"
                                                    Grid.Row="3">
-                                <Label Text="{Binding StartingTime, StringFormat='{HH:mm}'}" />
+                                <Label Text="{Binding StartingTime, StringFormat='{HH:mm}'}"/>
                                 <Label>-</Label>
-                                <Label Text="{Binding EndingTime, StringFormat='{HH:mm}'}" />
+                                <Label Text="{Binding EndingTime, StringFormat='{HH:mm}'}"/>
                             </HorizontalStackLayout>
                         </Grid>
                     </DataTemplate>
@@ -62,8 +62,9 @@
             <HorizontalStackLayout VerticalOptions="Center"
                                    HorizontalOptions="Center"
                                    Spacing="10">
-                <Button Text="Agregar Cita" />
-                <Button Text="Eliminar Cita Seleccionada" />
+                <Button Text="Agregar Cita"
+                        Clicked="OnAddAppointment"/>
+                <Button Text="Eliminar Cita Seleccionada"/>
             </HorizontalStackLayout>
 
         </VerticalStackLayout>

@@ -10,5 +10,9 @@ namespace AppointmentSimulator.Pages
             AppointmentsCollectionView.ItemsSource = GlobalData.Appointments;
         }
 
+        private async void OnAddAppointment(object sender, EventArgs e)
+        {
+            await Shell.Current.GoToAsync($"/{nameof(AddNewAppointmentPage)}");
+        }
     }
 }
