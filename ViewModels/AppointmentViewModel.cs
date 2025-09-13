@@ -21,6 +21,10 @@ namespace AppointmentSimulator.ViewModels
         [ObservableProperty]
         private TimeSpan _endingTime;
 
+        [ObservableProperty]
+        private Appointment _selectedAppointment;
+
+
         [RelayCommand]
         public async Task AddNewAppointment()
         {
@@ -54,20 +58,15 @@ namespace AppointmentSimulator.ViewModels
         [RelayCommand]
         public async Task DeleteAppointment()
         {
-            var appointmentToDelete = GlobalData.Appointments.FirstOrDefault(a => a.AppointmentDate.Equals(AppointmentDate) && a.StartingTime.Equals(StartingTime));
-            if (appointmentToDelete != null)
+            if (SelectedAppointment == null) return;
+
+            bool confirm = await Shell.Current.DisplayAlert("Confirm Delete",
+                "Delete this appointment?", "Yes", "No");
+
+            if (confirm)
             {
-                bool confirm = await Shell.Current.DisplayAlert("Confirm Delete", "You want to delete?", "Yes", "No");
-                if (confirm)
-                {
-                    GlobalData.Appointments.Remove(appointmentToDelete);
-                    await Shell.Current.DisplayAlert("Success", "Appointment deleted.", "OK");
-                    await Shell.Current.GoToAsync("..");
-                }
-            }
-            else
-            {
-                await Shell.Current.DisplayAlert("Error", "No appointment found for this date.", "OK");
+                GlobalData.Appointments.Remove(SelectedAppointment);
+                await Shell.Current.DisplayAlert("Success", "Appointment deleted.", "OK");
             }
         }
     }

@@ -8,7 +8,9 @@
                              Spacing="15">
 
             <CollectionView x:Name="AppointmentsCollectionView"
-                            SelectionMode="Single">
+                            SelectionMode="Single"
+                            ItemsSource="{Binding Appointments}"
+                            SelectedItem="{Binding SelectedAppointment, Mode=TwoWay}">
                 <CollectionView.ItemTemplate>
                     <DataTemplate>
                         <Grid Padding="5">
